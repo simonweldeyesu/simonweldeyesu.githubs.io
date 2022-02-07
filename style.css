@@ -1,0 +1,43 @@
+
+/* Displays the background of the Calculator blue */
+body{
+    background: skyblue;   
+}
+
+/*Set same size as the buttons*/
+*{
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+/*Makes a boarder around, set the background black*/
+.wrap{
+    width: 400px;
+    margin: auto;
+    height: auto;
+    background: black;
+    padding: 15px;
+}
+/*Text box wider,font size bigger,bold font*/
+input[type=text]{
+    width: 100%;
+    padding: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+/*Set the buttons same size as the textbox*/
+input[type=button]{
+    width: 89px;
+    padding: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+/* sets black hover over white buttons */
+.btn:hover{
+    background-color: #323330;
+    color: white;
+    transition: 0.5s ease-in-out;
+}

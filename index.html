@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="wrap">
+        <table border="1">
+            <tr>
+                <input type="text" id="result" />
+            </tr>
+            <!-- <tr>
+             <!-- create button and assign value to each button -->
+             <!-- clr('') will call function clr to clear all values -->
+            <!-- del('') will call function del to delete value -->
+            <!-- percent('') will call function percent to get the percentage value -->
+            <td><input type="button" value="AC" class="btn" onclick="clr()" /> </td>
+            <td><input type="button" value="X" class="btn" onclick="del()" /> </td>
+            <td><input type="button" value="%" class="btn" onclick="percent()" /> </td>
+            <td><input type="button" value="/" class="btn" onclick="dis('/')" /> </td>
+            </tr> -->
+
+            <tr>
+                <td><input type="button" value="7" class="btn" onclick="dis('7')" /> </td>
+                <td><input type="button" value="8" class="btn" onclick="dis('8')" /> </td>
+                <td><input type="button" value="9" class="btn" onclick="dis('9')" /> </td>
+                <td><input type="button" value="*" class="btn" onclick="dis('*')" /> </td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" class="btn" onclick="dis('4')" /> </td>
+                <td><input type="button" value="5" class="btn" onclick="dis('5')" /> </td>
+                <td><input type="button" value="6" class="btn" onclick="dis('6')" /> </td>
+                <td><input type="button" value="-" class="btn" onclick="dis('-')" /> </td>
+            </tr>
+            <tr>
+                <!-- create button and assign value to each button -->
+                <!-- dis('') will call function dis to display value -->
+                <td><input type="button" value="1" class="btn" onclick="dis('1')" /> </td>
+                <td><input type="button" value="2" class="btn" onclick="dis('2')" /> </td>
+                <td><input type="button" value="3" class="btn" onclick="dis('3')" /> </td>
+                <td><input type="button" value="+" class="btn" onclick="dis('+')" /> </td>
+            </tr>
+            <tr>
+                <!-- opposite('') will call function opposite to display value -->
+                 <!-- solve() will call function solve to display = -->
+                <td><input type="button" value="+/-" class="btn" onclick="opposite()" /> </td>
+                <td><input type="button" value="0" class="btn" onclick="dis('0')" /> </td>
+                <td><input type="button" value="." class="btn" onclick="dis('.')" /> </td>
+                <td><input type="button" value="=" class="btn" onclick="solve()" /> </td>
+
+            </tr>
+        </table>
+    </div>
+    <script>
+        // dis() to display value
+        function dis(val) {
+            document.getElementById("result").value += val
+        }
+        // del() to delete the value
+        function del() {
+            var input = document.getElementById("result");
+            input.value = input.value.substring(0, input.value.length - 1);
+        }
+        // opposite() to display the negative value
+        function opposite(val) {
+            var a = document.getElementById("result");
+            var n = a.value;
+            n = n * -1;
+            a.value = n;
+        }
+        // percent() to display percentage
+        function percent() {
+            var a, b, c;
+            a = Number(document.getElementById("result").value);
+            c = a / 100;
+            document.getElementById("result").value = c + "";
+        }
+        // solve() to get to display = 
+        function solve() {
+            let x = document.getElementById("result").value
+            let y = eval(x)
+            document.getElementById("result").value = y
+        }
+        // clr() to clear all values
+        function clr() {
+            document.getElementById("result").value = ""
+        }
+        // to display enter from keyboard 
+        var elem = document.getElementById('result');
+        elem.addEventListener('keypress', function (e) {
+            if (e.keyCode == 13) {
+                let x = document.getElementById("result").value
+                let y = eval(x)
+                document.getElementById("result").value = y
+
+                console.log('You pressed an "enter" key in somewhere');
+            }
+        });
+        // to display equal on the keyboard 
+        var elem = document.getElementById('result');
+        elem.addEventListener('keypress', function (e) {
+            if (e.keyCode == 61) {
+                let x = document.getElementById("result").value
+                let y = eval(x)
+                document.getElementById("result").value = y
+
+                console.log('You pressed an "equal" key in somewhere');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
